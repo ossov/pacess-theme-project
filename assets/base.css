@@ -1,3 +1,18 @@
+/* Define custom font family using Shopify CDN URLs */
+@font-face {
+  font-family: "Inter";
+  src: url(https://cdn.shopify.com/s/files/1/0705/6012/1017/files/Inter-VariableFont_opsz_wght.ttf?v=1749576011) format("truetype");
+  font-weight: 400; /* Regular weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(https://cdn.shopify.com/s/files/1/0705/6012/1017/files/Inter-Italic-VariableFont_opsz_wght.ttf?v=1749576011) format("truetype");
+  font-weight: 700; /* Bold weight */
+  font-style: normal;
+}
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
@@ -6,6 +21,8 @@
   --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  --font-body-family: "Inter", sans-serif;
+  --font-heading-family: "Inter", sans-serif;
 }
 
 .product-card-wrapper .card,
@@ -3600,3 +3617,25 @@ details-disclosure > details {
 .button {
   border-radius: 30px;
 }
+
+/* --- Custom Header Styles (Revised) --- */
+.header {
+  /* This gives the logo a fixed space and lets the menu and icons take the rest */
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.header__menu-item {
+  font-weight: 400; 
+}
+
+.product-card-wrapper {
+    width: 300px;
+    height: 500px;
+    margin: auto;
+}
+
+.product-grid {
+     grid-gap: -10px !important;
+}
+

@@ -1,0 +1,67 @@
+.flower-menu-wrapper {
+  padding: 15rem 0;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
+  margin-top: 5rem; /* This is the line that pushes the section down */
+}
+
+.flower-menu__container {
+  position: relative;
+  width: 100%;
+  height: var(--section-height);
+  margin: 2rem 0;
+}
+
+.flower-menu__petal {
+  position: absolute;
+  transition: transform 0.3s ease;
+}
+
+.flower-menu__petal:hover {
+  transform: scale(1.05);
+}
+
+/* Add this new rule to fix inconsistent image sizes */
+.flower-menu__link img {
+  max-width: none; /* This overrides the theme's default responsive style */
+}
+
+/* --- Positioning for each petal --- */
+/* You can adjust these top/left/right/bottom values to perfect the layout */
+
+/* Blue Petal */
+.petal--1 {
+  top: 5.5%;
+  left: 34.7%;
+}
+
+/* Yellow Petal */
+.petal--2 {
+  top: -7%;
+  left: 49%;
+}
+
+/* Purple Petal */
+.petal--3 {
+  top: 7.5%;
+  right: 35.8%;
+}
+
+/* Red Petal */
+.petal--4 {
+  top: -17%;
+  left: 42%;
+}
+
+/* Green Petal */
+.petal--5 {
+  top: -6.5%;
+  right: 51%;
+}
+
+.flower-menu__centerpiece {
+  position: absolute;
+  top: 9%;
+  left: 49.8%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* This ensures it sits on top of the petals */
+}

@@ -1,75 +1,89 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "custom_flower_menu_VNqmpa": {
+      "type": "custom-flower-menu",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "petal_mTBd4R": {
+          "type": "petal",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "petal_image": "shopify://shop_images/blue-petal.png",
+            "collection_link": "water",
+            "image_width": 200
           }
         },
-        "button": {
-          "type": "buttons",
+        "petal_cbrFwb": {
+          "type": "petal",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "petal_image": "shopify://shop_images/yellow-petal.png",
+            "collection_link": "earth",
+            "image_width": 260
+          }
+        },
+        "petal_WUM77d": {
+          "type": "petal",
+          "settings": {
+            "petal_image": "shopify://shop_images/purple-petal.png",
+            "collection_link": "metal",
+            "image_width": 250
+          }
+        },
+        "petal_FAFjnJ": {
+          "type": "petal",
+          "settings": {
+            "petal_image": "shopify://shop_images/red-petal.png",
+            "collection_link": "fire",
+            "image_width": 230
+          }
+        },
+        "petal_yDwBtb": {
+          "type": "petal",
+          "settings": {
+            "petal_image": "shopify://shop_images/green-petal.png",
+            "collection_link": "wood",
+            "image_width": 230
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "petal_mTBd4R",
+        "petal_cbrFwb",
+        "petal_WUM77d",
+        "petal_FAFjnJ",
+        "petal_yDwBtb"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "color_scheme": "",
+        "section_height": 1000,
+        "centerpiece_image": "shopify://shop_images/centre-petal.png"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "video_nrUT4n": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
+        "heading": "Video",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
         "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
+        "color_scheme": "",
+        "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "custom_flower_menu_VNqmpa",
+    "video_nrUT4n"
   ]
 }
