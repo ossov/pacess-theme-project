@@ -167,6 +167,14 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
+
+          {% comment %} Custom Metafield: Resonance {% endcomment %}
+          {%- if card_product.metafields.custom.resonance.value != blank -%}
+            <div class="product-card__metafield-resonance caption-with-letter-spacing light">
+              {{ card_product.metafields.custom.resonance.value }}
+            </div>
+          {%- endif -%}
+
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
