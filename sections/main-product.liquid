@@ -76,7 +76,15 @@
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--3-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__info-wrapper-left">
+        {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
         <h1 class="product__title">{{ product.title | escape }}</h1>
+
+        {%- if product.metafields.custom.resonance != blank -%}
+          <div class="product__resonance-metafield">
+            <p>{{ product.metafields.custom.resonance }}</p>
+          </div>
+        {%- endif -%}
 
         <div class="custom-quantity-price-wrapper">
 
@@ -99,35 +107,31 @@
             {%- endif -%}
           </div>
 
-          <div
-            id="Quantity-Form-{{ section.id }}"
-            class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
-          >
-            <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
-              {{ 'products.product.quantity.label' | t }}
-            </label>
-            <quantity-input class="quantity">
-              <button class="quantity__button" name="minus" type="button">
+          <div id="Quantity-Form-{{ section.id }}" class="product-form__input product-form__quantity">
+  
+            <quantity-input class="quantity custom-quantity">
+
+              <button class="quantity__button custom-quantity__button" name="minus" type="button">
                 <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
-                <span class="svg-wrapper">
-                  {{- 'icon-minus.svg' | inline_asset_content -}}
-                </span>
+                <span class="svg-wrapper">{{- 'icon-minus.svg' | inline_asset_content -}}</span>
               </button>
-              <input
-                class="quantity__input"
-                type="number"
-                name="quantity"
-                id="Quantity-{{ section.id }}"
-                min="1"
-                value="1"
+
+              <input 
+                class="quantity__input custom-quantity__input" 
+                type="number" 
+                name="quantity" 
+                id="Quantity-{{ section.id }}" 
+                min="1" 
+                value="1" 
                 form="{{ product_form_id }}"
+                onkeydown="return false;"
               >
-              <button class="quantity__button" name="plus" type="button">
+
+              <button class="quantity__button custom-quantity__button" name="plus" type="button">
                 <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
-                <span class="svg-wrapper">
-                  {{- 'icon-plus.svg' | inline_asset_content -}}
-                </span>
+                <span class="svg-wrapper">{{- 'icon-plus.svg' | inline_asset_content -}}</span>
               </button>
+
             </quantity-input>
           </div>
 
@@ -149,7 +153,7 @@
           id="ProductInfo-{{ section.id }}"
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
-          {%- assign product_form_id = 'product-form-' | append: section.id -%}
+          
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}

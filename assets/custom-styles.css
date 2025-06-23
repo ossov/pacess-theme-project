@@ -16,68 +16,86 @@
   box-shadow: none !important;
 }
 
-/* --- Custom Quantity & Price Button --- */
+/* --- Custom Quantity & Price Button (Simplified Control) --- */
 
-/* 1. The main blue pill container */
+/* 1. The main blue pill container 
+      THIS IS YOUR MASTER HEIGHT CONTROL */
 .custom-quantity-price-wrapper {
-  display: inline-flex; /* Makes it fit its content, and allows items inside to be aligned */
-  align-items: center; /* Vertically aligns the price and quantity selector in the middle */
-  background-color: #559edb; /* The blue color from your design */
-  border-radius: 50px; /* This creates the pill shape */
-  padding: 5px 8px; /* Adds a little space inside the blue pill */
-  border: 1px solid #559edb; /* Ensures a clean edge */
+  display: inline-flex;
+  align-items: center; /* This keeps content vertically centered */
+  height: 55px;      /* <--- MASTER HEIGHT. Adjust this one value. */
+  width: 230px;
+  background-color: #559edb;
+  border-radius: 30px;
+  padding: 0 10px;   /* We now only need left/right padding */
+  margin-left: 100px;
 }
 
 /* 2. The Price Text */
-/* We target the price specifically when it's inside our new container */
 .custom-quantity-price-wrapper .price__container .price-item {
+  position: relative; /* <--- Add this line */
+  top: 2px;           /* <--- And this line to nudge it down (adjust as needed) */
+
   color: white;
   font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   margin: 0;
-  padding-right: 15px;
+  padding-right: 16px;
+  padding-left: 7px;
 }
 
 /* 3. The inner white pill for the quantity selector */
-.custom-quantity-price-wrapper .quantity {
-  background-color: white;
-  border-radius: 50px;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  border: 1px solid #559edb;
+.custom-quantity-price-wrapper .custom-quantity {
+  position: relative; /* <-- Add this line */
+  top: 6px;           /* <-- And this line to nudge it down */
+
+  box-sizing: border-box !important; 
+  display: flex !important;
+  align-items: center !important;
+  height: 1px !important;
+  width: 120px !important;
+  justify-content: center !important;
+  background-color: white !important;
+  border-radius: 30px !important;
+  padding: 0 10px !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
-/* 4. The quantity text input (the number '1') */
-.custom-quantity-price-wrapper .quantity__input {
-  /* Remove default browser styles */
-  border: none;
-  background: transparent;
-  /* Style the text */
-  width: 25px; /* Give it a fixed width */
-  text-align: center;
-  font-size: 1.6rem;
-  color: #559edb;
-  font-weight: 600;
-  padding: 0 5px; /* Add a little horizontal space */
+/* 4. The quantity text input */
+.custom-quantity-price-wrapper .custom-quantity__input {
+  height: 100% !important;
+  width: 25px !important;
+  border: none !important;
+  background: transparent !important;
+  text-align: center !important;
+  padding: 0 !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  color: #559edb !important;
 }
 
 /* 5. The plus and minus buttons */
-.custom-quantity-price-wrapper .quantity__button {
-  /* Remove default button styles */
-  background: transparent;
-  border: none;
-  /* Style the +/- symbols */
-  color: #559edb;
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1;
-  padding: 0 5px; /* Add a little horizontal space */
-  cursor: pointer;
+.custom-quantity-price-wrapper .custom-quantity__button {
+  height: 100% !important;
+  width: auto !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-size: 2.5rem !important;
+  font-weight: 1000 !important;
+  color: #559edb !important;
 }
 
-/* Hide the default "Quantity" label */
+/* Hides the default "Quantity" label */
 .custom-quantity-price-wrapper .quantity__label {
   display: none;
 }
@@ -87,4 +105,108 @@
   max-width: none;
   width: 100%;
   word-break: normal !important; /* This is the magic line */
+  padding-right: 10px;
+  margin-top: 150px;
+  margin-left: 10px;
+  font-size: 5rem;
+  color: #000000;
+}
+
+/* --- Custom Add to Cart Button Styling --- */
+
+/* --- Custom Add to Cart Button Styling --- */
+
+/* Targets the main 'Add to cart' button in our new column */
+.product__info-wrapper-left .product-form__submit {
+  /* Sizing and Spacing */
+  width: 100%;
+  padding: 1px 1px;
+  margin-top: 10px;
+  margin-left: 48px;
+
+  /* Colors and Border */
+  background-color: transparent;
+  border: 3px solid #559edb;
+  color: #559edb;
+  box-shadow: none; /* <-- Add this line to remove the shadow */
+
+  /* Shape and Text */
+  border-radius: 30px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Also remove the default shadow from the quantity selector's white pill */
+.custom-quantity-price-wrapper .quantity {
+  box-shadow: none;
+}
+
+/*
+  Final Fix: This hides the "ghost" pseudo-elements that the theme
+  uses to create the rectangular shadow effect behind the buttons.
+*/
+.product__info-wrapper-left .button::before,
+.product__info-wrapper-left .button::after {
+  display: none !important;
+}
+
+/* This defines the custom hover effect for the 'Add to cart' button */
+.product__info-wrapper-left .product-form__submit:hover {
+  background-color: #559edb; /* The button fills with blue */
+  color: white;              /* The text turns white */
+}
+
+/* --- Fine-tuning for Vertical Alignment (v2) --- */
+
+/* This targets the plus/minus buttons and the number input */
+.custom-quantity-price-wrapper .quantity__button,
+.custom-quantity-price-wrapper .quantity__input {
+  /* Force all items to have the same explicit height */
+  height: 22px; /* You can adjust this pixel value up or down */
+
+  /* Matching the line-height to the height perfectly centers the text/icon */
+  line-height: 22px; 
+
+  /* Remove any default browser spacing that might interfere */
+  padding: 0;
+  margin: 0;
+}
+
+/* We still need this to center the SVG icons within the button area */
+.custom-quantity-price-wrapper .quantity__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+/* --- Center Align the First Column's Content --- */
+.product__info-wrapper-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Controls the size of the Plus/Minus Icons --- */
+.custom-quantity-price-wrapper .custom-quantity__button svg {
+  width: 100px !important; /* Adjust this value for the icon's width */
+  height: 100px !important; /* Adjust this value for the icon's height */
+}
+
+/* --- Styles for the Resonance Metafield --- */
+.product__resonance-metafield {
+  /* Sizing and Alignment */
+  width: 100%;
+  text-align: center;
+  margin: -20px 0px;
+  white-space: nowrap; /* <--- Add this line to prevent wrapping */
+  margin-left: 0px;
+  margin-top: -50px;
+
+  /* Text Styling */
+  font-size: 3rem; 
+  color: #646464;    
+  letter-spacing: 0.5px;
 }
