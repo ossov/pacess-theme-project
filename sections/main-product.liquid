@@ -77,6 +77,69 @@
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--3-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__info-wrapper-left">
         <h1 class="product__title">{{ product.title | escape }}</h1>
+
+        <div class="custom-quantity-price-wrapper">
+
+          <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+            {%- render 'price',
+              product: product,
+              use_variant: true,
+              show_badges: true,
+              price_class: 'price--large'
+            -%}
+            {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
+              <div class="product__tax caption rte">
+                {%- if cart.taxes_included -%}
+                  {{ 'products.product.taxes_included' | t }}
+                {%- endif -%}
+                {%- if shop.shipping_policy.body != blank -%}
+                  {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div
+            id="Quantity-Form-{{ section.id }}"
+            class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+          >
+            <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
+              {{ 'products.product.quantity.label' | t }}
+            </label>
+            <quantity-input class="quantity">
+              <button class="quantity__button" name="minus" type="button">
+                <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+                <span class="svg-wrapper">
+                  {{- 'icon-minus.svg' | inline_asset_content -}}
+                </span>
+              </button>
+              <input
+                class="quantity__input"
+                type="number"
+                name="quantity"
+                id="Quantity-{{ section.id }}"
+                min="1"
+                value="1"
+                form="{{ product_form_id }}"
+              >
+              <button class="quantity__button" name="plus" type="button">
+                <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+                <span class="svg-wrapper">
+                  {{- 'icon-plus.svg' | inline_asset_content -}}
+                </span>
+              </button>
+            </quantity-input>
+          </div>
+
+        </div>
+
+        {%- render 'buy-buttons',
+          block: block,
+          product: product,
+          product_form_id: product_form_id,
+          section_id: section.id,
+          show_pickup_availability: true
+        -%}
       </div>
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
@@ -108,6 +171,7 @@
                     </h2>
                   </a>
                 </div>
+            {%- comment -%}
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
@@ -143,6 +207,7 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
+            {%- endcomment -%}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -232,6 +297,7 @@
                     </div>
                   </details>
                 </div>
+            {%- comment -%}
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -445,6 +511,7 @@
                     </volume-pricing>
                   {%- endif -%}
                 </div>
+              {%- endcomment -%}
               {%- when 'popup' -%}
                 <modal-opener
                   class="product-popup-modal__opener quick-add-hidden"
@@ -468,6 +535,7 @@
 
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+            {%- comment -%}
               {%- when 'buy_buttons' -%}
                 {%- render 'buy-buttons',
                   block: block,
@@ -476,6 +544,7 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
+            {%- endcomment -%}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">

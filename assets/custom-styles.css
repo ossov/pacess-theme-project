@@ -1,0 +1,90 @@
+/* Creates the 3-column grid layout on larger screens */
+@media screen and (min-width: 750px) {
+  .product.grid--3-col-tablet {
+    display: grid;
+    grid-template-columns: 35% 50% 15%;
+    align-items: start;
+    gap: 2rem;
+  }
+} /* Final fix to remove the gap above the product image */
+.product__media-wrapper .product__media {
+  padding-top: 0 !important;
+} /* Aggressively removes any border, outline, or shadow from the product image gallery and everything inside it. */
+.product__media-wrapper * {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* --- Custom Quantity & Price Button --- */
+
+/* 1. The main blue pill container */
+.custom-quantity-price-wrapper {
+  display: inline-flex; /* Makes it fit its content, and allows items inside to be aligned */
+  align-items: center; /* Vertically aligns the price and quantity selector in the middle */
+  background-color: #559edb; /* The blue color from your design */
+  border-radius: 50px; /* This creates the pill shape */
+  padding: 5px 8px; /* Adds a little space inside the blue pill */
+  border: 1px solid #559edb; /* Ensures a clean edge */
+}
+
+/* 2. The Price Text */
+/* We target the price specifically when it's inside our new container */
+.custom-quantity-price-wrapper .price__container .price-item {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0;
+  padding-right: 15px;
+}
+
+/* 3. The inner white pill for the quantity selector */
+.custom-quantity-price-wrapper .quantity {
+  background-color: white;
+  border-radius: 50px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #559edb;
+}
+
+/* 4. The quantity text input (the number '1') */
+.custom-quantity-price-wrapper .quantity__input {
+  /* Remove default browser styles */
+  border: none;
+  background: transparent;
+  /* Style the text */
+  width: 25px; /* Give it a fixed width */
+  text-align: center;
+  font-size: 1.6rem;
+  color: #559edb;
+  font-weight: 600;
+  padding: 0 5px; /* Add a little horizontal space */
+}
+
+/* 5. The plus and minus buttons */
+.custom-quantity-price-wrapper .quantity__button {
+  /* Remove default button styles */
+  background: transparent;
+  border: none;
+  /* Style the +/- symbols */
+  color: #559edb;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0 5px; /* Add a little horizontal space */
+  cursor: pointer;
+}
+
+/* Hide the default "Quantity" label */
+.custom-quantity-price-wrapper .quantity__label {
+  display: none;
+}
+
+/* Allow the product title to use the full width of its column AND prevent unnatural word wrapping */
+.product__info-wrapper-left .product__title {
+  max-width: none;
+  width: 100%;
+  word-break: normal !important; /* This is the magic line */
+}
