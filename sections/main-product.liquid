@@ -264,12 +264,14 @@
                   {%- endif -%}
                 </p>
               <div class="grid__item">
+              {%- comment -%}
                 {%- when 'description' -%}
                   {%- if product.description != blank -%}
                     <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                       {{ product.description }}
                     </div>
                   {%- endif -%}
+              {%- endcomment -%}
               </div>
               {%- when 'sku' -%}
                 <p

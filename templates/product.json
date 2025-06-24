@@ -81,10 +81,43 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "collapsible_content_iD6HhX": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_yPWQWR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Practitioner Info",
+            "icon": "none",
+            "row_content": "{{ product.description }}",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_yPWQWR"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "collapsible_content_iD6HhX"
   ]
 }
