@@ -1,12 +1,18 @@
-/* Creates the 3-column grid layout on larger screens */
+/* --- FINAL Responsive Grid Layout --- */
 @media screen and (min-width: 750px) {
   .product.grid--3-col-tablet {
     display: grid;
-    grid-template-columns: 35% 50% 15%;
+    /* Use flexible fr units instead of percentages */
+    grid-template-columns: 3fr 3fr 3fr; 
     align-items: start;
-    gap: 2rem;
+    margin: 0 auto;
+
+    /* Set a small base gap between all columns */
+    column-gap: 20px; 
   }
-} /* Final fix to remove the gap above the product image */
+}
+
+/* Final fix to remove the gap above the product image */
 .product__media-wrapper .product__media {
   padding-top: 0 !important;
 } /* Aggressively removes any border, outline, or shadow from the product image gallery and everything inside it. */
@@ -28,7 +34,7 @@
   background-color: #559edb;
   border-radius: 30px;
   padding: 0 10px;   /* We now only need left/right padding */
-  margin-left: 100px;
+  margin-left: 0px;
 }
 
 /* 2. The Price Text */
@@ -107,7 +113,7 @@
   word-break: normal !important; /* This is the magic line */
   padding-right: 10px;
   margin-top: 150px;
-  margin-left: 10px;
+  margin-left: 170px;
   font-size: 5rem;
   color: #000000;
 }
@@ -122,7 +128,7 @@
   width: 100%;
   padding: 1px 1px;
   margin-top: 10px;
-  margin-left: 48px;
+  margin-left: 0px;
 
   /* Colors and Border */
   background-color: transparent;
@@ -209,4 +215,116 @@
   font-size: 3rem; 
   color: #646464;    
   letter-spacing: 0.5px;
+}
+
+/* --- Widen the Collapsible Content Section --- */
+.collapsible-content {
+  max-width: 1850px; /* Adjust this value to your desired width */
+  align-self: center;
+  margin-top: -20px;
+}
+
+/* --- Center the Dropdown Header Title (Final Version) --- */
+.collapsible-content .accordion__title {
+  flex-grow: 1;         /* Tells the title to take up all available space */
+  text-align: center;   /* Centers the text within that new, larger space */
+  font-size: 2.0rem;    /* Your custom font size from before */
+  padding-left: 55px;
+}
+
+/* =================================================================== */
+/* FINAL STYLES FOR COLLAPSIBLE DROPDOWN                               */
+/* =================================================================== */
+
+/* 1. The main clickable bar */
+.collapsible-content summary {
+  /* This creates a "canvas" for us to position items on */
+  position: relative; 
+  display: block;
+  
+  /* Your custom pill shape and styles */
+  border: 2px solid #559edb;
+  border-radius: 50px;
+  padding: 15px 20px 25px 20px; /* Added extra bottom padding for the arrow */
+  cursor: pointer;
+  list-style: none; /* Hides default markers */
+}
+
+/* Hides the default arrow marker */
+.collapsible-content summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 2. The Title (H2) */
+.collapsible-content .accordion__title {
+  /* This centers the title text */
+  text-align: center;
+  font-size: 2.0rem; /* Your desired font size */
+  margin: 0; /* Removes extra spacing */
+}
+
+/* 4. This makes the arrow flip when the dropdown is open */
+.collapsible-content details[open] > summary .icon-caret {
+  transform: translateX(-50%) rotate(180deg);
+}
+
+/* 5. The Content Box that opens (from before, keep this) */
+.collapsible-content .accordion__content {
+    border: 2px solid #559edb;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    margin-top: -10px;
+    padding: 25px 20px 15px 20px;
+}
+
+/* --- Hide the Dropdown Arrow Icon --- */
+.collapsible-content .icon-caret {
+  display: none;
+}
+
+/* --- Custom Hover Effect for Collapsible Dropdown --- */
+
+/* This changes the background of the pill on hover */
+.collapsible-content summary:hover {
+  background-color: #559edb !important; /* The same blue as your other buttons */
+}
+
+/* This changes the text color when the pill is hovered */
+.collapsible-content summary:hover .accordion__title {
+  color: white; /* The text turns white */
+  text-decoration: none !important; /* Removes the underline on hover */
+}
+
+/* --- Removes the final "ghost" border from the accordion wrapper --- */
+.collapsible-content summary {
+  box-shadow: none !important;
+}
+
+/* --- Styles for the Short Description Metafield --- */
+.product__short-description {
+  font-size: 2rem;    /* Adjust size */
+  color: #646464;      /* Adjust color (a dark grey) */
+  line-height: 1.5;     /* Adjust line spacing for readability */
+}
+
+/* --- Adds space to the top of the third column --- */
+.product.grid--3-col-tablet > .product__info-wrapper {
+  padding-top: 190px !important; /* Adjust this value as needed */
+  padding-left: 90px !important;
+}
+
+/* --- FINAL FIX: Override theme's fixed width for the third column --- */
+@media screen and (min-width: 750px) {
+  .product.grid--3-col-tablet > .product__info-wrapper {
+    width: auto !important;
+    flex-basis: auto !important;
+  }
+}
+
+/* --- FINAL LAYOUT OVERRIDE --- */
+/* This rule targets all three columns in our custom grid */
+.product.grid--3-col-tablet > .grid__item {
+  width: auto !important;
+  max-width: none !important;
+  flex-grow: 0 !important; /* Prevents unwanted growing */
 }
