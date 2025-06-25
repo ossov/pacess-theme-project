@@ -222,6 +222,7 @@
   max-width: 1850px; /* Adjust this value to your desired width */
   align-self: center;
   margin-top: -20px;
+  position: relative;
 }
 
 /* --- Center the Dropdown Header Title (Final Version) --- */
