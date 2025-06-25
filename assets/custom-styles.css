@@ -322,10 +322,7 @@
   }
 }
 
-/* --- FINAL LAYOUT OVERRIDE --- */
-/* This rule targets all three columns in our custom grid */
-.product.grid--3-col-tablet > .grid__item {
-  width: auto !important;
-  max-width: none !important;
-  flex-grow: 0 !important; /* Prevents unwanted growing */
+/* --- Custom Product Card Title Size --- */
+.card__heading .full-unstyled-link {
+  font-size: 3rem; /* Adjust this value to your desired size */
 }
