@@ -5,10 +5,10 @@
 }
 
 .flower-menu__container {
+  height: 460px !important;
+  width: 460px !important;
+  margin: 0 auto;
   position: relative;
-  width: 100%;
-  height: var(--section-height);
-  margin: 2rem 0;
 }
 
 .flower-menu__petal {
@@ -30,38 +30,108 @@
 
 /* Blue Petal */
 .petal--1 {
-  top: 5.5%;
-  left: 34.7%;
+  top: 200px;
+  left: 45px;
 }
 
 /* Yellow Petal */
 .petal--2 {
-  top: -7%;
-  left: 49%;
+  top: 84px;
+  left: 215px;
 }
 
 /* Purple Petal */
 .petal--3 {
-  top: 7.5%;
-  right: 35.8%;
+  top: 231px;
+  left: 170px;
 }
 
 /* Red Petal */
 .petal--4 {
-  top: -17%;
-  left: 42%;
+  top: -20px;
+  left: 132px;
 }
 
 /* Green Petal */
 .petal--5 {
-  top: -6.5%;
-  right: 51%;
+  top: 86px;
+  left: 1px;
 }
 
 .flower-menu__centerpiece {
   position: absolute;
-  top: 9%;
-  left: 49.8%;
-  transform: translate(-50%, -50%);
+  top: 155px;
+  left: 155px;
   z-index: 2; /* This ensures it sits on top of the petals */
+}
+
+/* =================================================================== */
+/* FLOWER MENU - MOBILE STYLES (STATIC PIXEL POSITIONING)            */
+/* =================================================================== */
+
+@media screen and (max-width: 749px) {
+
+  /* 1. Sets the static size of our canvas */
+  .flower-menu__container {
+    width: 360px !important;
+    height: 360px !important;
+    margin: 0 auto !important; /* Centers the canvas */
+  }
+
+  /* 2. Set static pixel positions for each petal */
+  /* These are starting points - you will need to adjust them */
+  .petal--1 {
+    top: 147px !important;
+    left: 37px !important;
+  }
+
+  .petal--2 {
+    top: 57px !important;
+    left: 160px !important; /* Centered in a 320px box */
+  }
+
+  .petal--3 {
+    top: 160px !important;
+    left: 130px !important; /* Important to reset 'left' when using 'right' */
+  }
+
+  .petal--4 {
+    top: -10px !important;
+    left: 99px !important;
+  }
+
+  .petal--5 {
+    top: 67px !important;
+    left: 9px !important;
+  }
+
+  .flower-menu__centerpiece {
+    top: 114px !important;
+    left: 114px !important; /* (320px - 75px) / 2 */
+    z-index: 2 !important;
+  }
+
+  .flower-menu__centerpiece img {
+    width: 100px !important;
+  }
+
+  /* --- MANUAL SIZING FOR EACH PETAL ON MOBILE --- */
+/* Add this block inside your @media (max-width: 749px) rule */
+
+.petal--1 img {
+  width: 130px !important; /* Adjust size for petal 1 */
+}
+.petal--2 img {
+  width: 170px !important; /* Adjust size for petal 2 */
+}
+.petal--3 img {
+  width: 163px !important; /* Adjust size for petal 3 */
+}
+.petal--4 img {
+  width: 150px !important; /* Adjust size for petal 4 */
+}
+.petal--5 img {
+  width: 150px !important; /* Adjust size for petal 5 */
+}
+
 }

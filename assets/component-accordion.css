@@ -1,6 +1,6 @@
 .accordion summary {
   display: flex;
-  position: relative;
+  position: centre;
   line-height: 1;
   padding: 1.5rem 0;
 }

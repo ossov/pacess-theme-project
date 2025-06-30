@@ -113,7 +113,7 @@
   word-break: normal !important; /* This is the magic line */
   padding-right: 10px;
   margin-top: 150px;
-  margin-left: 170px;
+  margin-left: 173px;
   font-size: 5rem;
   color: #000000;
 }
@@ -219,7 +219,6 @@
 
 /* --- Widen the Collapsible Content Section --- */
 .collapsible-content {
-  max-width: 1850px; /* Adjust this value to your desired width */
   align-self: center;
   margin-top: -20px;
   position: relative;
@@ -328,4 +327,53 @@
   width: auto !important;
   max-width: none !important;
   flex-grow: 0 !important; /* Prevents unwanted growing */
+}
+
+/* =================================================================== */
+/* RESPONSIVE STYLES FOR PRODUCT PAGE (MOBILE)                         */
+/* =================================================================== */
+
+/* This targets screens 749px wide or smaller (tablets and phones) */
+@media screen and (max-width: 1025px) {
+
+  /* 1. Force the layout into a single column */
+  .product.grid--3-col-tablet {
+    display: block !important; /* Override the desktop grid */
+  }
+
+  /* 2. Remove fixed widths from the columns so they stack naturally */
+  .product.grid--3-col-tablet > .grid__item {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* 3. Center all the content */
+  .product__info-wrapper-left,
+  .product__media-wrapper,
+  .product__info-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally centers all items */
+    text-align: center;   /* Centers all text */
+    padding: 5px 0;      /* Adds some vertical space between sections */
+  }
+
+  /* 4. Allow the short description text to wrap normally */
+  .product__short-description {
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  /* This centers the Product Title */
+  .product__info-wrapper-left .product__title {
+    margin-left: 9px;
+    margin-top: 30px;
+  }
+
+  /* This centers the Short Description text in the third column */
+  .product__info-wrapper .product__short-description {
+    margin-right: 100px;
+    margin-top: -140px;
+  }
+
 }
